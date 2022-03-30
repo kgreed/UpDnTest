@@ -12,7 +12,7 @@ namespace UpDnTest
         {
             if (loading) return;
             changingDiscount = true;
-            CalculatePriceFromRetailAndDiscount( updnDiscount.CurrentEditValue);
+            CalculatePriceFromRetailAndDiscount( );
             CalculateSQMRateFromPriceAndSqM();
             changingDiscount = false;
           
@@ -22,7 +22,7 @@ namespace UpDnTest
         private void txtSQMRate_TextChanged(object sender, EventArgs e)
         {
            CalculateDiscountFromPriceAndRetail();
-           CalculatePriceFromRetailAndDiscount(updnDiscount.CurrentEditValue);
+           CalculatePriceFromRetailAndDiscount( );
             
         }
       
@@ -35,9 +35,9 @@ namespace UpDnTest
             updnDiscount.Value = 10;
             loading = false;
 
-            CalculatePriceFromRetailAndDiscount(updnDiscount.Value);
+            CalculatePriceFromRetailAndDiscount();
             CalculateSQMRateFromPriceAndSqM();
-//            CalculateDiscountFromPriceAndRetail();
+ 
         }
 
         public Decimal RetailPrice => Convert.ToDecimal((txtRetailPrice.Text=="" ? "0" : txtRetailPrice.Text));
@@ -78,9 +78,9 @@ namespace UpDnTest
             SQMRate = (SQM== 0)? 0: Result / SQM;
         }
 
-        private void CalculatePriceFromRetailAndDiscount(decimal discountPercent)
+        private void CalculatePriceFromRetailAndDiscount()
         {
-            Result = RetailPrice * (1 - discountPercent / 100);
+            Result = RetailPrice * (1 - updnDiscount.CurrentEditValue / 100);
         }
 
     }
