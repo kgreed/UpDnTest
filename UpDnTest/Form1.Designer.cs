@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.updnDiscount = new System.Windows.Forms.NumericUpDown();
+            this.updnDiscount = new UpDnTest.NumericUpDownEx();
             this.txtSQMRate = new System.Windows.Forms.TextBox();
             this.txtResult = new System.Windows.Forms.TextBox();
             this.txtRetailPrice = new System.Windows.Forms.TextBox();
@@ -45,6 +45,16 @@
             // 
             this.updnDiscount.DecimalPlaces = 4;
             this.updnDiscount.Location = new System.Drawing.Point(373, 171);
+            this.updnDiscount.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.updnDiscount.Minimum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            -2147483648});
             this.updnDiscount.Name = "updnDiscount";
             this.updnDiscount.Size = new System.Drawing.Size(120, 23);
             this.updnDiscount.TabIndex = 0;
@@ -150,7 +160,7 @@
 
         #endregion
 
-        private NumericUpDown updnDiscount;
+        private NumericUpDownEx updnDiscount;
         private TextBox txtSQMRate;
         private TextBox txtResult;
         private TextBox txtRetailPrice;
